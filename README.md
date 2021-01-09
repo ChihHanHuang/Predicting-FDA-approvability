@@ -5,4 +5,4 @@ drug_classification_v1.ipynb is the ML code.
 The data is in the folder "data".
 The models are the the release "models"
 
-Our study also suggests that machine learning can provide the possibility of whether a drug can enter clinical trial, be approved by government, or it is prone to be withdrawn.
+Our study suggests that machine learning can provide the possibility of whether a drug can enter clinical trial, be approved by government, or it is prone to be withdrawn.
