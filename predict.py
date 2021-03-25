@@ -79,9 +79,9 @@ def predict(newD_feature):
 
     for i in range(10):
 
-        TD_NTD_model = joblib.load('models/model_TD_NTD_'+str(i)+'.pkl')
-        CD_MD_model = joblib.load('models/model_CD_MD_'+str(i)+'.pkl')
-        MDon_off_model = joblib.load('models/model_MDon_MDoff_'+str(i)+'.pkl')
+        TD_NTD_model = joblib.load('models/model_TD_NTD/model_TD_NTD_'+str(i)+'.pkl')
+        CD_MD_model = joblib.load('models/model_CD_MD/model_CD_MD_'+str(i)+'.pkl')
+        MDon_off_model = joblib.load('models/model_MDon_off/model_MDon_MDoff_'+str(i)+'.pkl')
 
         TD_NTD_predict = TD_NTD_model.predict(X_test)
         CD_MD_predict = CD_MD_model.predict(X_test)
@@ -110,7 +110,7 @@ def predict(newD_feature):
 
 if __name__ == "__main__":
     filename = str(sys.argv[1])
-    print(filename)
+    print('predicting FDA approvability for ' + str(filename))
     with open(filename, "r") as fp:
         DrugID = json.load(fp)
         
