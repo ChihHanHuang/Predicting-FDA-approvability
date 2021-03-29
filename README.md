@@ -14,13 +14,13 @@ You'll need to install the following in order to run the code
 * pandas
 
 ## Usage 
-To predict FDA approvability of new small-molecule drugs of your interest with our trained models, you'll need to prepare a list of PubchemID for the compounds and save it in a txt file and saved in current directory. 
+To predict FDA approvability of new small-molecule compounds of your interest with our trained models, you'll need to prepare a list of PubChemID for the compounds and save it in a txt file in current directory. 
 
 For example, the PubChemIDs of compounds of interest is saved as 'testComps.txt'. Run
 ```
 python prediction.py testComps.txt
 ```
-This returns a 'result.csv' file which contains a table like the following:
+This returns a 'result.csv' file, which contains a table like the following:
 
 | PubChemID  | non-TD/TD | MD/CD | MDon/MDoff |
 | ---------- | --------- | ----- | ---------- |
@@ -30,4 +30,4 @@ This returns a 'result.csv' file which contains a table like the following:
 | 28693  | non-TD (10)  | CD (10) | MDoff (10) |
 | 155774  | non-TD (10)  | MD (10) | MDon (9) |
 
-Used the newly FDA-approved drugs from our study as example. The results are predicted by the 10 models of the three classification (non-TD/TD, MD/CD, and MDon/MDoff). Number in parenthesis indicates the number of models predicting the class. TD, toxic compound; CD, drug in clinical trial; MD, drug approved by FDA; MDoff, drug withdrawn from the market; MDon, drug currently on the market. 
+This table used the newly FDA-approved drugs from our study as example. The results are predicted by the 10 models of the three classification (non-TD/TD, MD/CD, and MDon/MDoff). Number in parenthesis indicates the number of models predicting the class. TD, toxic compound; CD, drug in clinical trial; MD, drug approved by FDA; MDoff, drug withdrawn from the market; MDon, drug currently on the market. 
