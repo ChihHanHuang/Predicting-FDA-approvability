@@ -3,7 +3,7 @@ This work suggests that machine learning can provide the possibility of whether 
 
 ## Data
 The data folder contains the dateset used to train the models proposed in this work. 
-*
+
 ## Requirements
 You'll need to install the following in order to run the code
 * Python 3.7
