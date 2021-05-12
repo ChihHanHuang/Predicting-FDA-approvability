@@ -26,7 +26,7 @@ This returns a 'result.csv' file, which contains a table like the following:
 | ---------- | --------- | ----- | ---------- |
 | 9822750 | non-TD (10) | MD (10) | MDon (7) |
 | 5834  | non-TD (10)  | MD (10) | MDon (10) |
-| 6675  | non-TD (10)  | CD (7) | MDon (10) |
+| 6675  | non-TD (10)  | MD (7) | MDon (10) |
 | 28693  | non-TD (10)  | CD (10) | MDoff (10) |
 | 155774  | non-TD (10)  | MD (10) | MDon (9) |
 
