@@ -14,7 +14,7 @@ You'll need to install the following in order to run the code
 * pandas
 
 ## Usage 
-To predict FDA approvability of new small-molecule compounds of your interest with our trained models, you'll need to prepare a list of PubChemID for the compounds and save it in a txt file in current directory. 
+To predict FDA approvability of new small-molecule compounds of your interest with our trained models, you'll need to prepare a list of PubChemID for the compounds and save it in a txt file in current directory. Follow instructions on README in the model folder for the model files. 
 
 For example, the PubChemIDs of compounds of interest is saved as 'testComps.txt'. Run
 ```
