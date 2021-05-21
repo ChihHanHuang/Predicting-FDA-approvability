@@ -18,7 +18,7 @@ To predict FDA-approvability of new small-molecule compounds of your interest wi
 
 For example, the PubChemIDs of compounds of interest is saved as 'testComps.txt'. Run
 ```
-python prediction.py testComps.txt
+python predict.py testComps.txt
 ```
 This returns a 'result.csv' file, which contains a table like the following:
 
