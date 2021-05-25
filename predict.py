@@ -1,15 +1,15 @@
 import numpy as np
+import numpy.ma as ma
 import pandas as pd
-import rdkit
 from rdkit.Chem import MACCSkeys
 from rdkit import Chem
-from rdkit.Chem import AllChem
-import pubchempy as pcp
-import sklearn 
+import pubchempy as pcp 
 import joblib
 import sys
 import json
 
+import warnings
+warnings.filterwarnings("ignore")
 #feature extraction
 def get_feature(PubChem_ID):
     feature=[]
@@ -27,16 +27,28 @@ def get_feature(PubChem_ID):
             c_feature["cid"]=c_feature.index
             c_feature=c_feature.values.tolist()
             feature.append(c_feature[0])
+           #print(cid)
         except:
             continue
             
     feature=pd.DataFrame(feature)
     feature.columns = c_f_columns
+    feature['molecular_weight']=feature.molecular_weight.astype(float)
+    feature['monoisotopic_mass']=feature.monoisotopic_mass.astype(float)
     feature.cid=feature.cid.astype(str)
     feature = feature[physioCP]
 
     return feature
 
+def mw_over(feature):
+    molecular_weight = np.array(feature['molecular_weight'])
+    ind = np.where(molecular_weight > 1500)
+    cid_over_mw = feature.iloc[ind]['cid']
+    print('The following compounds exceed MW of 1500 Dalton:')
+    print(cid_over_mw)
+    index = np.where(molecular_weight <= 1500)
+    feature = feature.iloc[index]
+    return feature 
 
 def smi_to_maccs(smi):
     MACCS_SIZE = 167
@@ -61,15 +73,22 @@ def get_maccs(SMILES):
 
 def get_test_feature(PubchemID):
     Feature = get_feature(PubchemID)
+    Feature = mw_over(Feature)
     SMILES = Feature['canonical_smiles']
     MACCs= get_maccs(SMILES)
     MACCs['cid'] = Feature['cid']
     F_fea = pd.merge(Feature, MACCs, on="cid")
     return F_fea
 
+def fill(a):
+    a=np.where(np.isnan(a), ma.array(a, mask=np.isnan(a)).mean(axis=0), a)
+    print()
+    return a
+
 def predict(newD_feature):
     X_test=newD_feature.drop(columns=['canonical_smiles','cid'])
     X_test = np.array(X_test)
+    X_test = fill(X_test)
 
     newD_pred=pd.DataFrame(newD_feature['cid'].values,columns=['PubChemID'])
     newD_pred['non-TD/TD']=0
@@ -79,8 +98,8 @@ def predict(newD_feature):
 
     for i in range(10):
 
-        TD_NTD_model = joblib.load('models/model_TD_NTD/model_TD_NTD_'+str(i)+'.pkl')
-        CD_MD_model = joblib.load('models/model_CD_MD/model_CD_MD_'+str(i)+'.pkl')
+        TD_NTD_model = joblib.load('models/model_NTD_TD/model_NTD_TD_'+str(i)+'.pkl')
+        CD_MD_model = joblib.load('models/model_MD_CD/model_MD_CD_'+str(i)+'.pkl')
         MDon_off_model = joblib.load('models/model_MDon_off/model_MDon_MDoff_'+str(i)+'.pkl')
 
         TD_NTD_predict = TD_NTD_model.predict(X_test)
