@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/ChihHanHuang/Predicting-FDA-approvability/blob/main/Graphical_abstract2.png">
+  <img src="https://github.com/ChihHanHuang/Predicting-FDA-approvability/blob/main/Graphical_abstract.png">
 </p>
 
 # Predicting FDA approvability of small-molecule drugs
