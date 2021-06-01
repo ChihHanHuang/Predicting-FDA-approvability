@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/ChihHanHuang/Predicting-FDA-approvability/blob/main/Graphical_abstract2.png">
+</p>
+
 # Predicting FDA approvability of small-molecule drugs
 This work suggests that machine learning can provide the possibility of whether a drug can enter clinical trial, be approved by government, or be withdrawn from the market.
 
