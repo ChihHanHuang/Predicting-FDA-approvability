@@ -3,6 +3,12 @@
 </p>
 
 # Predicting FDA approvability of small-molecule drugs
+This study has been published and is available at the following link:
+
+https://www.biorxiv.org/content/10.1101/2022.10.15.512330v1
+
+Huang, C. H., Hsu, J., Yang, L. Y., Chen, T. M., Shih, E. S., & Hwang, M. J. (2022). Predicting FDA approvability of small-molecule drugs. bioRxiv, 2022-10.
+
 This work suggests that machine learning can provide the possibility of whether a drug can enter clinical trial, be approved by government, or be withdrawn from the market.
 
 ## Data
